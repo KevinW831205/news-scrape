@@ -14,13 +14,17 @@
         <li class="list-group-item row">
             <h3>{{headline}}</h3>
             <p>{{summary}}</p>
-            <a href="https://starcraft2.com/en-us{{url}}" target="#">Link to ariticle</a>
+            <p><a href="https://starcraft2.com/en-us{{url}}" target="#">Link to ariticle</a></p>
 
             {{!-- Link for collapse of comments --}}
             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
                 aria-expanded="false" aria-controls="collapseExample">
                 View Comments
             </a>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addComment">
+                Make a comment
+            </button>
+
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <h4>Comments</h4>
@@ -34,6 +38,29 @@
         {{/each}}
     </ul>
 
+</div>
+
+<div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add a Comment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <textarea>
+                    
+                </textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
