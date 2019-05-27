@@ -12,19 +12,21 @@
         {{#each article}}
 
         <li class="list-group-item row">
-            <h4>{{headline}}</h4>
+            <h3>{{headline}}</h3>
             <p>{{summary}}</p>
+            <a href="https://starcraft2.com/en-us{{url}}" target="#">Link to ariticle</a>
 
             {{!-- Link for collapse of comments --}}
             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
                 aria-expanded="false" aria-controls="collapseExample">
-                Link with href
+                View Comments
             </a>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                    Nihil anim
-                    keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <h4>Comments</h4>
+                    <p>
+                        {{!-- comments go here --}}
+                    </p>
                 </div>
             </div>
         </li>
