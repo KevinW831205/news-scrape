@@ -21,15 +21,15 @@ var ArticleSchema = new Schema({
     summary: {
         type: String,
         required: true
-    }
+    },
 
 
     // associating models
 
-    // note: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Note"
-    // }
+    comment: {
+        type: Schema.Types.ObjectId,
+        ref: "Comment"
+    }
 });
 
 // This creates our model from the above schema, using mongoose's model method
