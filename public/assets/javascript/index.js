@@ -12,8 +12,12 @@ $('#addCommentModal').on('show.bs.modal', function (event) {
 
 $("#submitComment").on("click", function (event) {
     const articleid = $(this).data("articleid");
+    $("#comment-validation").hide()
+
+    console.log("submitbutton clicked")
 
     if (!$("#comment-input").val()) {
+        $("#comment-validation").show()
         return console.log("error")
     }
 
