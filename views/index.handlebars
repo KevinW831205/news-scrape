@@ -18,7 +18,7 @@
             <p><a href="https://starcraft2.com{{url}}" target="#">Link to ariticle</a></p>
 
             {{!-- Link for collapse of comments --}}
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+            <a class="btn btn-primary" data-toggle="collapse" href="#articleComment{{@index}}" role="button"
                 aria-expanded="false" aria-controls="collapseExample">
                 View Comments
             </a>
@@ -27,7 +27,7 @@
                 Make a comment
             </button>
 
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="articleComment{{@index}}">
                 <div class="card card-body">
                     <table class="table table-hover">
                         <thead>
