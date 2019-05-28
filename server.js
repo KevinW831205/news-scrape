@@ -37,6 +37,8 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Set up routes
 require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+
 
 // Start the server
 app.listen(PORT, function () {

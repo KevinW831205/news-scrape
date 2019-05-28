@@ -1,20 +1,21 @@
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4 text-center">Fluid jumbotron</h1>
-            <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its
-                parent.</p>
+            <h1 class="display-4 text-center">Starcraft II News</h1>
+            <p class="lead text-center">The latest news in Starcraft II
+                <br>
+                Make comments about how you feel about whats going on.
+            </p>
         </div>
     </div>
 
 
     <ul class="list-group list-group-flush">
         {{#each article}}
-
         <li class="list-group-item row">
             <h3>{{headline}}</h3>
             <p>{{summary}}</p>
-            <p><a href="https://starcraft2.com/en-us{{url}}" target="#">Link to ariticle</a></p>
+            <p><a href="https://starcraft2.com{{url}}" target="#">Link to ariticle</a></p>
 
             {{!-- Link for collapse of comments --}}
             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
@@ -28,14 +29,31 @@
 
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    <h4>Comments</h4>
-                    <p>
-                        {{!-- comments go here --}}
-                    </p>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each comment}}
+                            <tr>
+                                {{!-- comments go here --}}
+                                <td>{{comment}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger comment-delete"
+                                        data-id="{{this._id}}">delete</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </li>
-
         {{/each}}
     </ul>
 
@@ -55,9 +73,11 @@
                 <form>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="comment-input"></textarea>
                     </div>
                 </form>
+                <div>Please Enter a Comment</div>
+                <div>Comment Submitted</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -69,9 +89,7 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>

@@ -14,9 +14,11 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
 
         db.Article.find({})
+            .populate("comment")
             .then(function (dbArticle) {
-                console.log(dbArticle)
-
+                console.log(dbArticle);
+                console.log(dbArticle[0]);
+                // res.json(dbArticle);
                 res.render("index", { article: dbArticle })
             })
             .catch(function (err) {

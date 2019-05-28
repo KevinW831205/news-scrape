@@ -2,11 +2,54 @@
 
 
 $('#addCommentModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var articleid = button.data("id") // Extract info from data-* attributes
-    console.log(articleid)
+    const button = $(event.relatedTarget) // Button that triggered the modal
+    const articleid = button.data("id") // Extract info from data-* attributes
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 
-    $(this).find("#submitComment").attr("targetArticle",articleid);
+    $(this).find("#submitComment").attr("data-articleid", articleid);
 })
+
+$("#submitComment").on("click", function (event) {
+    const articleid = $(this).data("articleid");
+
+    if (!$("#comment-input").val()) {
+        return console.log("error")
+    }
+
+    $.ajax({
+        method: "POST",
+        url: "/api/articles/" + articleid,
+        data: {
+            // Value taken from note textarea
+            comment: $("#comment-input").val()
+        }
+    })
+        // With that done
+        .then(function (data) {
+            // Log the response
+            console.log(data);
+            // Empty the notes section
+            $("#notes").empty();
+        });
+
+    // Also, remove the values entered in the input and textarea for note entry
+    $("#comment-input").val("");
+    location.reload();
+    //show submitted
+});
+
+$(document).on("click", ".comment-delete", function (event) {
+    $.ajax({
+        method: "DELETE",
+        url: "/api/comment/" + $(this).data("id"),
+        data: {
+        }
+    })
+        // With that done
+        .then(function (data) {
+            location.reload();
+        });
+
+})
+
